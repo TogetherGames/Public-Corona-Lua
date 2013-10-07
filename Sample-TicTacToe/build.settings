@@ -1,0 +1,50 @@
+-- Supported values for orientation:
+-- portrait, portraitUpsideDown, landscapeLeft, landscapeRight
+
+settings = {
+	
+	orientation = {
+		default = "portrait",
+		supported = { "portrait", }
+	},
+	
+	iphone = {
+		plist = {
+			UIStatusBarHidden = false,
+			UIPrerenderedIcon = true, -- set to false for "shine" overlay
+			--UIApplicationExitsOnSuspend = true, -- uncomment to quit app on suspend
+
+			FacebookAppID = "380670285349853",
+
+            -- iOS app URL schemes:
+            CFBundleURLTypes =
+            {
+                {
+                    CFBundleURLSchemes =
+                    {
+                        "fb380670285349853", -- example scheme for facebook
+                        --"coronasdkapp", -- example second scheme
+                    }
+                }
+            }
+		}
+	},
+	
+	plugins =
+	{
+		-- key is the name passed to Lua's 'require()'
+		["plugin.together"] =
+		{
+			-- required
+			publisherId = "com.playstogether",
+		},
+	},	
+	
+	-- Android permissions
+	androidPermissions =
+   	{
+   		"android.permission.INTERNET",
+       	"android.permission.RECORD_AUDIO"
+   	},
+
+}
